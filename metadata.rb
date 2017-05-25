@@ -1,12 +1,18 @@
 name 'base_example'
-maintainer 'The Authors'
-maintainer_email 'you@example.com'
+maintainer 'Scott Ford'
+maintainer_email 'sford@chef.io'
 license 'All Rights Reserved'
 description 'Installs/Configures base_example'
 long_description 'Installs/Configures base_example'
 version '0.1.0'
 chef_version '>= 12.1' if respond_to?(:chef_version)
+depends 'audit'
+depends 'chef-client'
 
+
+%w( redhat mac_os_x redhat ubuntu windows ).each do |os|
+  supports os
+end
 # The `issues_url` points to the location where issues for this cookbook are
 # tracked.  A `View Issues` link will be displayed on this cookbook's page when
 # uploaded to a Supermarket.
